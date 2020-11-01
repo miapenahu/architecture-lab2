@@ -1,0 +1,17 @@
+
+- Para construir la imagen de docker:
+
+sudo docker build -t supermarket_ms .
+
+- Para correr la imagen, con la configuración personalizada en este nodo:
+
+sudo docker run --net=host -p 4000:4000 -e DB_HOST=127.0.0.1 -e DB_PORT=3306 -e \
+DB_USER=super -e DB_PASSWORD=super -e DB_NAME=supermarket_db -e URL=0.0.0.0:4000 --name \
+supermarket_ms supermarket_ms
+
+- NOTA: Si ya se tiene una imagen anterior de supermarket_ms, quitarla con
+  este comando:
+
+sudo docker rm --force supermarket_ms
+
+
